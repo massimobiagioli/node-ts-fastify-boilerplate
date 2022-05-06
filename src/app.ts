@@ -4,12 +4,13 @@ import { diContainer, fastifyAwilixPlugin } from 'fastify-awilix'
 
 import UseCase from './core/usecase/UseCase'
 import robotController from './robot/controller/RobotController'
-import Robot from './robot/entity/Robot'
+import { Robot } from './robot/entity/Robot'
 import RobotGateway from './robot/gateway/RobotGateway'
 import RobotGatewayMemory from './robot/gateway/impl/RobotGatewayMemory'
 import FindAllRobotsUseCase from './robot/usecase/FindAllRobotsUseCase'
 
 const importDynamic = new Function('modulePath', 'return import(modulePath)')
+const fastifyPrintRoutes = importDynamic('fastify-print-routes')
 
 declare module 'fastify-awilix' {
     interface Cradle {
@@ -20,8 +21,6 @@ declare module 'fastify-awilix' {
 
 const createApp = (opts = {}) => {
     const app = fastify(opts)
-
-    const fastifyPrintRoutes = importDynamic('fastify-print-routes')
 
     app.register(fastifyPrintRoutes)
     app.register(fastifyAwilixPlugin, {})

@@ -1,4 +1,4 @@
-import Robot from '../entity/Robot'
+import { Robot } from '../entity/Robot'
 
 interface RobotGateway {
     getAll(): Promise<Robot[]>

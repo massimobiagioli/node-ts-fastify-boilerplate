@@ -114,6 +114,12 @@ Add dependency injection:
 yarn add fastify-awilix awilix
 ```
 
+Add Typebox and ajv for validation:
+
+```
+yarn add @sinclair/typebox ajv ajv-formats
+```
+
 Testing:
 
 ```
@@ -132,13 +138,25 @@ module.exports = {
 };
 ```
 
-Create file `test/testSetup.ts` with this content:
+Execute Jest with this option enabled:
+
+```
+NODE_OPTIONS=--experimental-vm-modules
+```
+
+DotEnv:
 
 ```
 import * as dotenv from 'dotenv'
 import path from 'path'
 
 dotenv.config({ path: path.resolve(__dirname, '../.env.test') })
+```
+
+fp-ts:
+
+```
+yarn add fp-ts
 ```
 
 ## TODO
