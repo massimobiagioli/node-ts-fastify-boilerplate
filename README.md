@@ -14,6 +14,7 @@ Add `dotenv` module:
 
 ```
 yarn add dotenv
+yarn add @fastify/env
 ```
 
 Duplicate and customize `.env.example` into `.env`
@@ -144,13 +145,19 @@ Execute Jest with this option enabled:
 NODE_OPTIONS=--experimental-vm-modules
 ```
 
-DotEnv:
+Create file `test/testSetup.ts` with this content:
 
 ```
 import * as dotenv from 'dotenv'
 import path from 'path'
 
 dotenv.config({ path: path.resolve(__dirname, '../.env.test') })
+```
+
+Authentication:
+
+```
+yarn add @fastify/jwt
 ```
 
 fp-ts:

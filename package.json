@@ -5,6 +5,8 @@
   "author": "Massimo Biagioli",
   "license": "MIT",
   "dependencies": {
+    "@fastify/env": "^3.0.0",
+    "@fastify/jwt": "^5.0.1",
     "@sinclair/typebox": "^0.23.5",
     "ajv": "^8.11.0",
     "ajv-formats": "^2.1.1",
