@@ -17,6 +17,7 @@ const RobotRoutes: FastifyPluginAsync = async (server: FastifyInstance, options:
                     200: GetAllRobotsResponse,
                 },
             },
+            onRequest: [server.authenticate],
         },
         async (request, reply) => {
             const findAllRobotsUseCase = request.diScope.cradle.findAllRobotsUseCase

@@ -1,4 +1,6 @@
 import { Static, Type } from '@sinclair/typebox'
+import { FastifyReply } from 'fastify'
+import { FastifyRequest } from 'fastify'
 import { FastifyInstance, FastifyPluginAsync, FastifyPluginOptions } from 'fastify'
 import fp from 'fastify-plugin'
 
@@ -32,5 +34,13 @@ const AuthRoutes: FastifyPluginAsync = async (server: FastifyInstance, options: 
             reply.send({ token })
         },
     )
+
+    server.decorate('authenticate', async (request: FastifyRequest, reply: FastifyReply) => {
+        try {
+            await request.jwtVerify()
+        } catch (err) {
+            reply.send(err)
+        }
+    })
 }
 export default fp(AuthRoutes)
