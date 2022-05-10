@@ -166,6 +166,14 @@ fp-ts:
 yarn add fp-ts
 ```
 
+## Play with Boilerplate
+
+-   Install `asdf`or `nvm` for managing NodeJS version
+-   Select the correct NodeJs version (see `.tool-versions` file)
+-   Install `yarn` globally
+-   Execute the command: `yarn` to install all dependencies
+-   All the available commands are listed in the `package.json` file under scripts section
+
 ## TODO
 
 -   Add Swagger
